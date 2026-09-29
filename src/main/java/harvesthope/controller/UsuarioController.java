@@ -65,5 +65,19 @@ ResponseEntity.ok(usuarioService.atualizar(usuario));
     @DeleteMapping("{id}")
     public ResponseEntity<Void>
 excluir(@PathVariable Long id) {
-    
+
+        if
+(usuarioService.buscarPorId(id).isEmpty())
+{
+        return
+ResponseEntity.notFound().build();
+}
+
+
+
+
+            usuarioService.excluir(id);
+            return
+ResponseEntity.noContent().build();
+    }
 }
